@@ -5,124 +5,131 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_bmiinformation"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:context=".activity_bmiinformation">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadinginformation"
             android:layout_width="match_parent"
             android:layout_height="325dp"
-            android:id="@+id/loadinganimation"
-            app:lottie_rawRes="@raw/calculating"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true"/>
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loaddng" />
 
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Calculating BMI"
-       android:id="@+id/calbmi"
-       android:textSize="39dp"
-       android:textAlignment="center"
-       android:layout_gravity="center"
-       android:padding="13dp"
-       android:textStyle="bold"
-       android:background="@color/white"
-       android:backgroundTint="#3F51B5"
-       android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/calbmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:backgroundTint="#3F51B5"
+            android:padding="13dp"
+            android:text="Calculating BMI"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="39dp"
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/agecard"
             android:layout_width="match_parent"
             android:layout_height="195dp"
-            android:id="@+id/agecard"
             android:layout_marginTop="65dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Age"
-                android:btackground="@color/black"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textSize="52dp"/>
 
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:text="Age"
+                android:textAlignment="center"
+                android:textSize="52dp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="39dp"
+                android:background="@color/black"
                 android:text="50"
                 android:textAlignment="center"
-                android:textStyle="bold"
-                android:background="@color/black"
-                android:layout_gravity="center"
+                android:textColor="#3F51B5"
                 android:textSize="104dp"
-                android:layout_marginTop="39dp"
-                android:textColor="#3F51B5"/>
+                android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/weightcard"
-    android:layout_marginTop="65dp"
-    android:layout_marginBottom="65dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Weight"
-        android:background="@color/black"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textSize="52dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/weight"
-        android:text="CM:50"
-        android:textAlignment="center"
-        android:textSize="104dp"
-        android:textStyle="bold"
-        android:background="@color/black"
-        android:layout_gravity="center"
-        android:layout_marginTop="39dp"
-        android:textColor="#3F51B5"/>
-        
+        <androidx.cardview.widget.CardView
+            android:id="@+id/weightcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="65dp">
 
-</androidx.cardview.widget.CardView>
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/heightcard"
-    android:layout_marginTop="65dp"
-    android:layout_marginBottom="65dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Height"
-        android:background="@color/black"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textSize="52dp"?
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/height"
-        android:text="CM:50"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:background="@color/black"
-        android:layout_gravity="center"
-        android:textSize="104dp"
-        android:layout_marginTop="39dp"
-        android:textColor="#3F51B5"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:text="Weight"
+                android:textAlignment="center"
+                android:textSize="52dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="39dp"
+                android:background="@color/black"
+                android:text="CM:50"
+                android:textAlignment="center"
+                android:textColor="#3F51B5"
+                android:textSize="104dp"
+                android:textStyle="bold" />
 
 
-</androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/heightcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="65dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:text="Height"
+                android:textAlignment="center"
+                android:textSize="52dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="39dp"
+                android:background="@color/black"
+                android:text="CM:50"
+                android:textAlignment="center"
+                android:textColor="#3F51B5"
+                android:textSize="104dp"
+                android:textStyle="bold" />
+
+
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>

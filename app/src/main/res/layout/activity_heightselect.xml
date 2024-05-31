@@ -1,130 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityHeightSelect"
+    android:background="#A26D6D"
     android:orientation="vertical"
-    android:background="@color/black">
+    tools:context=".ActivityHeightSelect">
 
     <TextView
+        android:id="@+id/selectheighttxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/selectheighttxt"
-        android:text="Select Height"
-        android:gravity="center"
-        android:textSize="45.50dp"
-        android:textStyle="bold"
         android:layout_marginTop="13dp"
-        android:textColor="#3F51B5"/>
+        android:gravity="center"
+        android:text="Select Height"
+        android:textColor="#3F51B5"
+        android:textSize="45.50dp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="-50dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="-50dp"
+        android:orientation="horizontal">
+
         <ImageView
+            android:id="@+id/avatar"
             android:layout_width="214.50dp"
             android:layout_height="650.00dp"
-            android:id="@+id/avatar"
-            android:src="@drawable/standingmale"/>
+            android:src="@drawable/standingmale" />
+
         <LinearLayout
+            android:id="@+id/llcm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/llcm"
-            android:visibility="gone"
+            android:layout_marginTop="78dp"
             android:orientation="vertical"
-            android:layout_marginTop="78dp">
+            android:visibility="gone">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Centimeter"
                 android:textSize="39dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/selectedcm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="26dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcheight"
+                android:layout_width="195dp"
+                android:layout_height="429dp"
+                android:layout_marginTop="13dp"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="78dp"
+            android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/selectedcm"
+                android:text="Feet"
+                android:textSize="39dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/selectedfeet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="1"
-                android:textSize="26dp"/>
+                android:textSize="26dp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rpfeet"
                 android:layout_width="195dp"
-                android:layout_height="429dp"
-                android:id="@+id/rcheight"
-                android:visibility="visible"
-                android:layout_marginTop="13dp"/>
-        </LinearLayout>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/llft"
-    android:orientation="vertical"
-    android:layout_marginTop="78dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feet"
-        android:textSize="39dp"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/selectedfeet"
-        android:text="1"
-        android:textSize="26dp"/>
+                android:layout_height="169dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rpfeet"
-        android:layout_width="195dp"
-        android:layout_height="169dp"/>
-    <TextView
-        android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="Inches"
+                android:textSize="39dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/selectedinch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="26dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rpinch"
+                android:layout_width="195dp"
+                android:layout_height="169dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llbuttons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Inches"
-        android:textSize="39dp"
-        android:textStyle="bold"
-        android:layout_marginTop="13dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/selectedinch"
-        android:text="1"
-        android:textSize="26dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rpinch"
-        android:layout_width="195dp"
-        android:layout_height="169dp"/>
-</LinearLayout>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:text="Back"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/nextbtn"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:backgroundTint="#2196F3"
+            android:text="Next"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/llbuttons"
+        android:layout_gravity="bottom"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp"
-       >
+        android:gravity="center">
+
         <Button
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:id="@+id/back"
-            android:layout_marginTop="39dp"
-            android:textColor="@color/black"
-            android:layout_weight="1"
-            android:backgroundTint="@color/white"
-            android:text="Back"/>
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Back" />
+
         <Button
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:text="Next"
-            android:id="@+id/nextbtn"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:backgroundTint="#2196F3"
-            android:layout_marginTop="39dp"/>
+            android:id="@+id/calculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Calculate" />
 
     </LinearLayout>
 

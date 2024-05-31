@@ -45,25 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
         ageList = new ArrayList<>();
         weightList = new ArrayList<>();
-        weightList.add(null);
-        weightList.add(null);
-        weightList.add(null);
-        ageList.add(null);
-        ageList.add(null);
-        ageList.add(null);
-        for (int i = 1; i < 150; i++) {
+        for (int i = 1; i <= 150; i++) {
             ageList.add(i);
         }
-        for (int i = 1; i < 200; i++) {
+        for (int i = 1; i <= 200; i++) {
             weightList.add(i);
         }
         ageRCadapter ageRCAdapter = new ageRCadapter(ageList);
-        ageRCadapter ageRCadapter1=new ageRCadapter(weightList);
+        ageRCadapter weightRCAdapter = new ageRCadapter(weightList);
 
         agerecycleview.setAdapter(ageRCAdapter);
-        weightrecyclerview.setAdapter(ageRCadapter1);
-
-        int centerPosition = ageList.size() / 2;
+        weightrecyclerview.setAdapter(weightRCAdapter);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -77,12 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-                if (layoutManager != null) {
-                    int centerPosition = layoutManager.findFirstVisibleItemPosition() + layoutManager.getChildCount() / 2;
-                    ageRCAdapter.setSelectedItem(centerPosition);
-                    updateCenteredPosition(agerecycleview, ageRCAdapter);
-                }
+                updateCenteredPosition(recyclerView, ageRCAdapter, ageList, agecounter);
             }
         });
 
@@ -90,155 +77,138 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                LinearLayoutManager layoutManager1 = (LinearLayoutManager) recyclerView.getLayoutManager();
-                if (layoutManager1 != null) {
-                    int centerPosition = layoutManager1.findFirstVisibleItemPosition() + layoutManager1.getChildCount() / 2;
-                    ageRCadapter1.setSelectedItem(centerPosition);
-                    updateCenteredPositionw(weightrecyclerview, ageRCadapter1);
-                }
+                updateCenteredPosition(recyclerView, weightRCAdapter, weightList, weightcounter);
             }
         });
 
-        ImageButton male,female;
-        ImageView maleselect,femaleselect;
-        male=findViewById(R.id.male);
-        female=findViewById(R.id.female);
-        maleselect=findViewById(R.id.maleselect);
-        femaleselect=findViewById(R.id.femaleselect);
+        ImageButton male, female;
+        ImageView maleselect, femaleselect;
+        male = findViewById(R.id.male);
+        female = findViewById(R.id.female);
+        maleselect = findViewById(R.id.maleselect);
+        femaleselect = findViewById(R.id.femaleselect);
         maleselect.setVisibility(View.INVISIBLE);
         femaleselect.setVisibility(View.INVISIBLE);
-        MaterialButton kg=findViewById(R.id.kg);
-        MaterialButton pounds=findViewById(R.id.pounds);
-        agecounter=findViewById(R.id.agecounter);
-        weightcounter=findViewById(R.id.weightcounter);
+        MaterialButton kg = findViewById(R.id.kg);
+        MaterialButton pounds = findViewById(R.id.pounds);
+        agecounter = findViewById(R.id.agecounter);
+        weightcounter = findViewById(R.id.weightcounter);
 
-        Animation slidetoright= AnimationUtils.loadAnimation(this,R.anim.slide_in_left);
+        Animation slidetoright = AnimationUtils.loadAnimation(this, R.anim.slide_in_left);
         slidetoright.setDuration(1500);
         female.startAnimation(slidetoright);
         femaleselect.startAnimation(slidetoright);
 
-        Animation slidetoleft= AnimationUtils.loadAnimation(this,R.anim.slide_in_right);
+        Animation slidetoleft = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
         slidetoleft.setDuration(1500);
         male.startAnimation(slidetoleft);
         maleselect.startAnimation(slidetoleft);
 
-        TextView txtage=findViewById(R.id.txtage);
-        TextView txtweight=findViewById(R.id.txtweight);
-        MaterialButton nextheight= findViewById(R.id.nextheight);
+        TextView txtage = findViewById(R.id.txtage);
+        TextView txtweight = findViewById(R.id.txtweight);
+        MaterialButton nextheight = findViewById(R.id.nextheight);
 
-        Animation frombottomtotop= AnimationUtils.loadAnimation(this,R.anim.slidefrombottomtotop);
+        Animation frombottomtotop = AnimationUtils.loadAnimation(this, R.anim.slidefrombottomtotop);
         frombottomtotop.setDuration(2500);
         txtage.startAnimation(frombottomtotop);
 
-        Animation frombottomtotop1= AnimationUtils.loadAnimation(this,R.anim.slidefrombottomtotop);
+        Animation frombottomtotop1 = AnimationUtils.loadAnimation(this, R.anim.slidefrombottomtotop);
         frombottomtotop1.setDuration(2800);
         txtage.startAnimation(frombottomtotop1);
 
-        Animation frombottomtotop2= AnimationUtils.loadAnimation(this,R.anim.slidefrombottomtotop);
+        Animation frombottomtotop2 = AnimationUtils.loadAnimation(this, R.anim.slidefrombottomtotop);
         frombottomtotop2.setDuration(3100);
         txtweight.startAnimation(frombottomtotop2);
         kg.startAnimation(frombottomtotop2);
         pounds.startAnimation(frombottomtotop2);
 
-        Animation frombottomtotop3= AnimationUtils.loadAnimation(this,R.anim.slidefrombottomtotop);
+        Animation frombottomtotop3 = AnimationUtils.loadAnimation(this, R.anim.slidefrombottomtotop);
         frombottomtotop3.setDuration(3500);
         weightrecyclerview.startAnimation(frombottomtotop3);
 
-        LinearLayout agell=findViewById(R.id.agell);
-        Animation frombottomtotop4= AnimationUtils.loadAnimation(this,R.anim.slidefrombottomtotop);
+        LinearLayout agell = findViewById(R.id.agell);
+        Animation frombottomtotop4 = AnimationUtils.loadAnimation(this, R.anim.slidefrombottomtotop);
         frombottomtotop4.setDuration(3900);
         agell.startAnimation(frombottomtotop4);
 
-        LinearLayout weightll=findViewById(R.id.weightll);
-        Animation frombottomtotop5= AnimationUtils.loadAnimation(this,R.anim.slidefrombottomtotop);
+        LinearLayout weightll = findViewById(R.id.weightll);
+        Animation frombottomtotop5 = AnimationUtils.loadAnimation(this, R.anim.slidefrombottomtotop);
         frombottomtotop5.setDuration(4200);
         weightll.startAnimation(frombottomtotop5);
 
-        Animation frombottomtotop6= AnimationUtils.loadAnimation(this,R.anim.slidefrombottomtotop);
+        Animation frombottomtotop6 = AnimationUtils.loadAnimation(this, R.anim.slidefrombottomtotop);
         frombottomtotop6.setDuration(4500);
         nextheight.startAnimation(frombottomtotop6);
-
 
         male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 maleselect.setVisibility(View.VISIBLE);
-                femaleselect.setVisibility(View.VISIBLE);
-                genderselect="male";
+                femaleselect.setVisibility(View.INVISIBLE);
+                genderselect = "male";
             }
         });
+
         female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                maleselect.setVisibility(View.VISIBLE);
+                maleselect.setVisibility(View.INVISIBLE);
                 femaleselect.setVisibility(View.VISIBLE);
-                genderselect="female";
+                genderselect = "female";
             }
         });
 
         kg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               selected1=kg.getText().toString();
-               kg.setBackgroundColor(Color.BLACK);
-               pounds.setBackgroundColor(Color.parseColor("#3F51B5"));
-            }
-        });
-        pounds.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selected1=pounds.getText().toString();
-                pounds.setBackgroundColor(Color.BLACK);
-                kg.setBackgroundColor(Color.parseColor("#3F51B5"));
+                selected1 = kg.getText().toString();
+                kg.setBackgroundColor(Color.BLACK);
+                pounds.setBackgroundColor(Color.parseColor("#3F51B5"));
             }
         });
 
-        ageRCAdapter.setOnItemClickListener(new ageRCadapter.OnItemClickListener() {
+        pounds.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(int position) {
-                selectedage = ageList.get(position);
+            public void onClick(View view) {
+                selected1 = pounds.getText().toString();
+                pounds.setBackgroundColor(Color.BLACK);
+                kg.setBackgroundColor(Color.parseColor("#3F51B5"));
             }
         });
 
         nextheight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if(selected1!=null&&selectedage!=null&&selectedweight!=null&&genderselect!=""){
-                   Intent intent=new Intent(getApplicationContext(), activity_heightselect.class);
-                   intent.putExtra("selected1", selected1);
-                   intent.putExtra("selectedAge", selectedage.toString());
-                   intent.putExtra("selectedWeight", selectedweight.toString());
-                   intent.putExtra("gender", genderselect);
-               }
-               else {
-                   Toast.makeText(getApplicationContext(),"Check All the fields", Toast.LENGTH_SHORT).show();
-               }
+                if (selected1 != null && selectedage != null && selectedweight != null && !genderselect.isEmpty()) {
+                    Intent intent = new Intent(getApplicationContext(), ActivityHeightSelect.class);
+                    intent.putExtra("selected1", selected1);
+                    intent.putExtra("selectedAge", selectedage.toString());
+                    intent.putExtra("selectedWeight", selectedweight.toString());
+                    intent.putExtra("gender", genderselect);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please select all the fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
-    }
-    // Assuming updateCenteredPosition method exists
-    private void updateCenteredPosition(RecyclerView recyclerView, ageRCadapter adapter) {
-       LinearLayoutManager layoutManager=(LinearLayoutManager) recyclerView.getLayoutManager();
-       int firstVisibleposition =layoutManager.findFirstVisibleItemPosition();
-       int lastVisibleposition= layoutManager.findLastVisibleItemPosition();
-
-       int centerPosition= (firstVisibleposition+lastVisibleposition)/2;
-       if(centerPosition>=0&& centerPosition< adapter.getItemCount()){
-           selectedage=ageList.get(centerPosition);
-           agecounter.setText(selectedage.toString());
-       }
     }
 
-    private void updateCenteredPositionw(RecyclerView recyclerView,ageRCadapter adapter) {
+    private void updateCenteredPosition(RecyclerView recyclerView, ageRCadapter adapter, List<Integer> dataList, TextView counter) {
         LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        int firstVisibleposition = layoutManager.findFirstVisibleItemPosition();
-        int lastVisibleposition = layoutManager.findLastVisibleItemPosition();
+        int firstVisiblePosition = layoutManager.findFirstVisibleItemPosition();
+        int lastVisiblePosition = layoutManager.findLastVisibleItemPosition();
 
-        int centerPosition = (firstVisibleposition + lastVisibleposition) / 2;
+        int centerPosition = (firstVisiblePosition + lastVisiblePosition) / 2;
         if (centerPosition >= 0 && centerPosition < adapter.getItemCount()) {
-            selectedweight=weightList.get(centerPosition);
-            weightcounter.setText(selectedweight.toString());
+            Integer selectedItem = dataList.get(centerPosition);
+            if (selectedItem != null) {
+                counter.setText(selectedItem.toString());
+                if (counter == agecounter) {
+                    selectedage = selectedItem;
+                } else if (counter == weightcounter) {
+                    selectedweight = selectedItem;
+                }
+            }
         }
     }
 }

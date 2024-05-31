@@ -7,7 +7,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.abc.bmicalc2"
+        applicationId = "com.abc.bmicalc22"
         minSdk = 19
         targetSdk = 34
         versionCode = 1
