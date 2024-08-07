@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A26D6D"
+    android:background="#C8A2A2"
     android:orientation="vertical"
     tools:context=".ActivityHeightSelect">
 
@@ -15,7 +15,7 @@
         android:layout_marginTop="13dp"
         android:gravity="center"
         android:text="Select Height"
-        android:textColor="#3F51B5"
+        android:textColor="#051468"
         android:textSize="45.50dp"
         android:textStyle="bold" />
 
@@ -28,9 +28,9 @@
 
         <ImageView
             android:id="@+id/avatar"
-            android:layout_width="214.50dp"
+            android:layout_width="181dp"
             android:layout_height="650.00dp"
-            android:src="@drawable/standingmale" />
+            android:src="@drawable/man2" />
 
         <LinearLayout
             android:id="@+id/llcm"
@@ -73,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Feet"
+                android:textColor="#051468"
                 android:textSize="39dp"
                 android:textStyle="bold" />
 
@@ -93,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:text="Inches"
+                android:textColor="#051468"
                 android:textSize="39dp"
                 android:textStyle="bold" />
 
@@ -148,14 +150,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Back" />
+            android:text="Back"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/calculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Calculate" />
+            android:text="Calculate"
+            android:visibility="invisible"/>
 
     </LinearLayout>
 

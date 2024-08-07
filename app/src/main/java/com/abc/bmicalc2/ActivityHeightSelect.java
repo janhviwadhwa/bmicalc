@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.abc.bmicalc2.R;
+import com.abc.bmicalc2.activity_bmiinformation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +43,7 @@ public class ActivityHeightSelect extends AppCompatActivity {
 
         ImageView avatar = findViewById(R.id.avatar);
         if (gender.equals("male")) {
-            avatar.setImageResource(R.drawable.standingmale);
+            avatar.setImageResource(R.drawable.man2);
         } else {
             avatar.setImageResource(R.drawable.standingfemale);
         }
@@ -187,3 +190,4 @@ public class ActivityHeightSelect extends AppCompatActivity {
         }
     }
 }
+

@@ -35,7 +35,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="104dp"
-                android:src="@drawable/weight"
+                android:src="@drawable/weightmachine"
                 android:layout_marginTop="16dp"/>
         </LinearLayout>
 
